@@ -24,7 +24,7 @@ yarn start
 
 ## Deploy
 
-To deploy using [`now`](https://github.com/zeit/now-cli), first make sure you have it installed and that you're logged in, then you can deploy:
+To deploy using [`vercel`](https://github.com/vercel/vercel), first make sure you have it installed and that you're logged in, then you can deploy:
 
 ```
 npm i -g vercel
