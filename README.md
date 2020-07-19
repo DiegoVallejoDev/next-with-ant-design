@@ -1,7 +1,7 @@
 # next-with-ant-design
 next.js boilerplate with antdesign
 
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/jvarness/next-with-bulma)
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/Destructor1702/next-with-ant-design)
 
 
 A small example of how someone could use [Next.js](https://nextjs.org/) with [Ant Design](https://ant.design/).
