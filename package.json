@@ -1,0 +1,24 @@
+{
+  "name": "next-with-ant-design",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/Destructor1702/next-with-ant-design",
+  "keywords": [],
+  "author": "Diego Vallejo",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@ant-design/icons": "^4.2.1",
+    "antd": "^4.0.3",
+    "babel-plugin-import": "^1.13.0",
+    "babel-plugin-inline-import": "^3.0.0",
+    "http-status-codes": "^1.4.0",
+    "next": "^9.4.4",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}
