@@ -1,7 +1,9 @@
 # next-with-ant-design
 next.js boilerplate with antdesign
 
-[![Check Live DEmo](https://deploy.now.sh/static/button.svg)](https://next-with-ant-design-git-master.diegovallejo.vercel.app/)
+![logo](./banner.png)
+
+<a href="https://next-with-ant-design-git-master.diegovallejo.vercel.app/">Check Live Demo</a>
 
 
 A small example of how someone could use [Next.js](https://nextjs.org/) with [Ant Design](https://ant.design/).
