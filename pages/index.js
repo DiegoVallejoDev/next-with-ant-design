@@ -50,7 +50,7 @@ export default function Home(props) {
         <Row gutter={12}>
           <Col span={6}></Col>
           <Col span={6}><a href="https://weaglex.com"><img src="/weaglex.png" alt="weaglex" height="100px" /></a></Col>
-          <Col span={6}><a href="https://github.com/SkullHackerClub/"><img alt="skullHackerClub" src="/skullHackerClub.png" height="100px" /></a></Col>
+          <Col span={6}></Col>
           <Col span={6}></Col>
         </Row>
       </Typography.Title>
