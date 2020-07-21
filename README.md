@@ -6,7 +6,7 @@ This example shows how to use Next.js along with [Ant Design Pro Layout](https:/
 
 ## Live Demo
 
-[Here](next-with-ant-design.vercel.app)
+[Here](https://next-with-ant-design.vercel.app/)
 
 ## Deploy your own
 
