@@ -1,4 +1,4 @@
-import { Row, Col, Card, Typography, Button, icons } from 'antd'
+import { Row, Col, Card, Typography, Button } from 'antd'
 import { GithubOutlined, createFromIconfontCN } from '@ant-design/icons';
 
 
@@ -10,14 +10,14 @@ const IconFont = createFromIconfontCN({
 export default function () {
 
   return <Row>
-    <Col span={12}>
+    <Col span={24}>
       <Card>
 
         <Typography.Title level={2} style={{ textAlign: 'center' }}>
           Contribute to source code
         </Typography.Title>
 
-        <Typography.Paragraph level={2} style={{ textAlign: 'center' }}>
+        <Typography.Paragraph style={{ textAlign: 'center' }}>
 
           
           <p style={{fontSize:'1.2em'}}>
@@ -41,16 +41,15 @@ export default function () {
 
         </Typography.Paragraph>
       </Card>
-
     </Col>
-    <Col span={12}>
+    <Col span={24}>
       <Card>
 
         <Typography.Title level={2} style={{ textAlign: 'center' }}>
           Donate
         </Typography.Title>
 
-        <Typography.Paragraph level={2} style={{ textAlign: 'center' }}>
+        <Typography.Paragraph style={{ textAlign: 'center' }}>
           <img src="/PayPal.svg" alt="PayPal" height="55px" />
           <br />
           <Button
