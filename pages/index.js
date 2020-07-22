@@ -22,10 +22,7 @@ const Option = Select.Option
 export default function Home() {
   return (
     <>
-
-
       <h1>Home</h1>
-
 
       <Card>
         <Typography.Title level={2} style={{ textAlign: 'center' }}>
@@ -63,10 +60,10 @@ export default function Home() {
           <Typography.Title level={2} style={{ textAlign: 'center' }}>
             <br />Used by:
         </Typography.Title>
-          <Row gutter={6}>
-            <Col span={10}></Col>
-            <Col span={4}><a href="https://weaglex.com"><img src="/weaglex.png" alt="weaglex" height="100px" /></a></Col>
-            <Col span={4}></Col>
+          <Row >
+            <Col span={8}></Col>
+            <Col span={8}><a href="https://weaglex.com"><img src="/weaglex.png" alt="weaglex" height="100px" /></a></Col>
+            <Col span={8}></Col>
           </Row>
         </Typography.Title>
 
