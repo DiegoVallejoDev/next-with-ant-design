@@ -1,23 +1,5 @@
-import Link from 'next/link'
-
-import { HeartTwoTone, SmileTwoTone, GithubOutlined, HeartOutlined } from '@ant-design/icons';
-import { Row, Col } from 'antd'
-
-import {
-  Form,
-  Select,
-  InputNumber,
-  DatePicker,
-  Switch,
-  Slider,
-  Button,
-  Card,
-  Alert,
-  Typography
-} from 'antd'
-
-const FormItem = Form.Item
-const Option = Select.Option
+import { HeartTwoTone, GithubOutlined, HeartOutlined } from '@ant-design/icons';
+import { Row, Col, Form, Select, InputNumber, DatePicker, Switch, Slider, Button, Card, Typography } from 'antd';
 
 export default function Home() {
   return (
@@ -26,9 +8,9 @@ export default function Home() {
 
       <Card>
         <Typography.Title level={2} style={{ textAlign: 'center' }}>
-          <img src="/nextlogo.svg" alt="Next.js" style={{ maxHeight: '5em' }}></img>
+          <img src="/nextlogo.svg" alt="Next.js" style={{ maxHeight: '5em' }} />
           <span style={{ fontSize: '2em' }}>  +  </span>
-          <img src="/antdlogo.svg" alt="Ant Design" style={{ maxHeight: '5em' }}></img>
+          <img src="/antdlogo.svg" alt="Ant Design" style={{ maxHeight: '5em' }} />
         </Typography.Title>
 
         <Typography.Title level={2} style={{ textAlign: 'center' }}>
@@ -36,11 +18,10 @@ export default function Home() {
         </Typography.Title>
 
         <Typography.Title level={2} style={{ textAlign: 'center' }}>
-
           <Button
             size="large"
             type="primary"
-            onClick={() => window.open("https://github.com/Destructor1702/next-with-ant-design/", '_blank')}
+            onClick={() => window.open('https://github.com/DiegoVallejoDev/next-with-ant-design/', '_blank')}
             icon={<GithubOutlined />}
           >
             Clone it from Github
@@ -53,26 +34,23 @@ export default function Home() {
             href="/support"
           >
             Support this project
-        </Button>
-
-
-          <br />
-          <Typography.Title level={2} style={{ textAlign: 'center' }}>
-            <br />Used by:
-        </Typography.Title>
-          <Row >
-            <Col span={8}></Col>
-            <Col span={8}><a href="https://weaglex.com"><img src="/weaglex.png" alt="weaglex" height="100px" /></a></Col>
-            <Col span={8}></Col>
-          </Row>
+          </Button>
         </Typography.Title>
 
-
-
+        <Typography.Title level={2} style={{ textAlign: 'center' }}>
+          Used by:
+        </Typography.Title>
+        <Row justify="center">
+          <Col>
+            <a href="https://weaglex.com">
+              <img src="/weaglex.png" alt="weaglex" height="100px" />
+            </a>
+          </Col>
+        </Row>
       </Card>
 
-      <Form layout="horizontal">
-        <FormItem
+      <Form layout="horizontal" style={{ marginTop: 24 }}>
+        <Form.Item
           label="Input Number"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 8 }}
@@ -83,58 +61,60 @@ export default function Home() {
             max={10}
             style={{ width: 100 }}
             defaultValue={3}
-            name="inputNumber"
           />
-          <a href="#">Link</a>
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
+        <Form.Item
           label="Switch"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 8 }}
         >
           <Switch defaultChecked />
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
+        <Form.Item
           label="Slider"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 8 }}
         >
           <Slider defaultValue={70} />
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
+        <Form.Item
           label="Select"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 8 }}
         >
-          <Select size="large" defaultValue="lucy" style={{ width: 192 }}>
-            <Option value="jack">jack</Option>
-            <Option value="lucy">lucy</Option>
-            <Option value="disabled" disabled>
-              disabled
-            </Option>
-            <Option value="yiminghe">yiminghe</Option>
-          </Select>
-        </FormItem>
+          <Select
+            size="large"
+            defaultValue="lucy"
+            style={{ width: 192 }}
+            options={[
+              { value: 'jack', label: 'Jack' },
+              { value: 'lucy', label: 'Lucy' },
+              { value: 'disabled', label: 'Disabled', disabled: true },
+              { value: 'yiminghe', label: 'Yiminghe' },
+            ]}
+          />
+        </Form.Item>
 
-        <FormItem
+        <Form.Item
           label="DatePicker"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 8 }}
         >
-          <DatePicker name="startDate" />
-        </FormItem>
-        <FormItem style={{ marginTop: 48 }} wrapperCol={{ span: 8, offset: 8 }}>
+          <DatePicker />
+        </Form.Item>
+
+        <Form.Item style={{ marginTop: 48 }} wrapperCol={{ span: 8, offset: 8 }}>
           <Button size="large" type="primary" htmlType="submit">
             OK
           </Button>
           <Button size="large" style={{ marginLeft: 8 }}>
             Cancel
           </Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     </>
-  )
+  );
 }
