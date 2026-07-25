@@ -18,7 +18,7 @@ const ROUTES: ProLayoutProps['route'] = {
       icon: <SmileOutlined />,
       routes: [
         {
-          path: '/index',
+          path: '/',
           name: 'Home',
           icon: <AimOutlined />,
         },
@@ -45,6 +45,8 @@ const ROUTES: ProLayoutProps['route'] = {
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <ProLayout
+      title="Next.js + Ant Design"
+      logo="/nextlogo.svg"
       style={{ minHeight: '100vh' }}
       route={ROUTES}
       menuItemRender={(item, dom) => (

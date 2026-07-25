@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Row, Col, Card, Typography, Button, Space } from 'antd';
 import { GithubOutlined } from '@ant-design/icons';
 
@@ -42,7 +43,13 @@ export default function Support() {
           </Typography.Title>
 
           <Typography.Paragraph style={{ textAlign: 'center' }}>
-            <img src="/PayPal.svg" alt="PayPal" height="55px" />
+            <Image
+              src="/PayPal.svg"
+              alt="PayPal"
+              width={207}
+              height={55}
+              unoptimized
+            />
             <br />
             <Button
               style={{ margin: '2em 0' }}
@@ -54,7 +61,12 @@ export default function Support() {
             </Button>
 
             <Typography.Title level={4}>Donate Bitcoin:</Typography.Title>
-            <img src="/btc.jpg" alt="Bitcoin QR code" height="200px" />
+            <Image
+              src="/btc.jpg"
+              alt="Bitcoin QR code"
+              width={200}
+              height={202}
+            />
             <Typography.Paragraph copyable>1KaEDh8VsKmTowAXsHnZUVq25dvGA558XR</Typography.Paragraph>
           </Typography.Paragraph>
         </Card>
