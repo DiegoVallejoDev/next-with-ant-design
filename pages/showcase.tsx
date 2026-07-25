@@ -140,14 +140,14 @@ export default function Showcase() {
           </Card>
 
           <Card title="Tags & Badges" size="small">
-            <Space>
+            <Flex wrap="wrap" gap="small" align="center">
               <Tag color="magenta">magenta</Tag>
               <Tag color="volcano">volcano</Tag>
               <Tag color="geekblue">geekblue</Tag>
               <Badge count={5}><Avatar shape="square" icon={<UserOutlined />} /></Badge>
               <Badge status="success" text="Success" />
               <Badge status="warning" text="Warning" />
-            </Space>
+            </Flex>
           </Card>
 
           <Divider>Divider</Divider>
