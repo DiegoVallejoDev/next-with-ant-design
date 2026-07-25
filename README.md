@@ -89,9 +89,10 @@ next-with-ant-design/
 ├── pages/
 │   ├── _app.tsx          App wrapper with ConfigProvider + Layout
 │   ├── _document.tsx     HTML document shell
-│   ├── index.tsx         Home page with form components demo
+│   ├── index.tsx         Landing page
+│   ├── showcase.tsx      Full Ant Design component showcase
 │   ├── welcome.tsx       Account settings page
-│   ├── example.tsx       Data table + statistics example
+│   ├── example.tsx       Interactive data table + statistics
 │   ├── support.tsx       Contribution & donation page
 │   └── api/
 │       └── hello.ts      Sample API route

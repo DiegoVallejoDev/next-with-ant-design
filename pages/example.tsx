@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Card, Typography, Table, Tag, Space, Button, Statistic, Row, Col, Modal, Form, Input, Select, Popconfirm, message } from 'antd';
-import { PlaySquareOutlined, CheckCircleOutlined, ClockCircleOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { TableOutlined, CheckCircleOutlined, ClockCircleOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 
 interface DataType {
@@ -110,7 +110,7 @@ export default function Example() {
   return (
     <>
       <Typography.Title level={2}>
-        <PlaySquareOutlined /> Example Page
+        <TableOutlined /> Data Table
       </Typography.Title>
 
       <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>

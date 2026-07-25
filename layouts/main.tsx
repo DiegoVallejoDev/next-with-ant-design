@@ -2,11 +2,11 @@ import Link from 'next/link';
 import { ProLayout } from '@ant-design/pro-layout';
 import type { ProLayoutProps } from '@ant-design/pro-layout';
 import {
-  SmileOutlined,
+  HomeOutlined,
+  AppstoreOutlined,
+  TableOutlined,
   SettingOutlined,
-  PlaySquareOutlined,
   HeartOutlined,
-  AimOutlined,
 } from '@ant-design/icons';
 
 const ROUTES: ProLayoutProps['route'] = {
@@ -14,30 +14,28 @@ const ROUTES: ProLayoutProps['route'] = {
   routes: [
     {
       path: '/',
-      name: 'Welcome',
-      icon: <SmileOutlined />,
-      routes: [
-        {
-          path: '/',
-          name: 'Home',
-          icon: <AimOutlined />,
-        },
-        {
-          path: '/welcome',
-          name: 'Account Settings',
-          icon: <SettingOutlined />,
-        },
-        {
-          path: '/support',
-          name: 'Support US',
-          icon: <HeartOutlined />,
-        },
-      ],
+      name: 'Home',
+      icon: <HomeOutlined />,
+    },
+    {
+      path: '/showcase',
+      name: 'Component Showcase',
+      icon: <AppstoreOutlined />,
     },
     {
       path: '/example',
-      name: 'Example Page',
-      icon: <PlaySquareOutlined />,
+      name: 'Data Table',
+      icon: <TableOutlined />,
+    },
+    {
+      path: '/welcome',
+      name: 'Account Settings',
+      icon: <SettingOutlined />,
+    },
+    {
+      path: '/support',
+      name: 'Support US',
+      icon: <HeartOutlined />,
     },
   ],
 };
