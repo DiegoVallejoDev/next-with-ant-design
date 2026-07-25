@@ -1,67 +1,53 @@
-import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { HeartTwoTone, GithubOutlined, HeartOutlined } from '@ant-design/icons';
-import { Row, Col, Form, Select, InputNumber, DatePicker, Switch, Slider, Button, Card, Typography, Flex, Modal, Descriptions } from 'antd';
-import type { Dayjs } from 'dayjs';
+import { Row, Col, Form, Select, InputNumber, DatePicker, Switch, Slider, Button, Card, Typography, Flex } from 'antd';
 import dayjs from 'dayjs';
 
 const { Title, Text } = Typography;
 
-interface ShowcaseValues {
-  inputNumber?: number;
-  switch?: boolean;
-  slider?: number;
-  select?: string;
-  datePicker?: Dayjs;
-}
-
 export default function Home() {
   const router = useRouter();
-  const [submittedValues, setSubmittedValues] = useState<ShowcaseValues | null>(null);
-  const [form] = Form.useForm<ShowcaseValues>();
+  const [form] = Form.useForm();
 
-  const onFinish = (values: ShowcaseValues) => {
-    setSubmittedValues(values);
-  };
-
-  const formatValue = (value: unknown) => {
-    if (dayjs.isDayjs(value)) return value.format('YYYY-MM-DD');
-    if (typeof value === 'boolean') return value ? 'Yes' : 'No';
-    return String(value ?? '-');
+  const onFinish = (values: Record<string, unknown>) => {
+    console.log('Showcase submitted:', values);
+    form.resetFields();
   };
 
   return (
-    <Flex vertical gap="large" style={{ maxWidth: 960, margin: '0 auto' }}>
-      <Card bordered={false} style={{ textAlign: 'center' }}>
-        <Flex vertical align="center" gap="large">
-          <Flex align="center" justify="center" wrap="wrap" gap="middle">
+    <Flex vertical gap="middle" style={{ maxWidth: 960, margin: '0 auto' }}>
+      <Card bordered={false} styles={{ body: { padding: '16px 24px' } }}>
+        <Flex vertical align="center" gap="middle" style={{ textAlign: 'center' }}>
+          <Flex align="center" justify="center" wrap="wrap" gap="small">
             <Image
               src="/nextlogo.svg"
               alt="Next.js"
-              width={132}
-              height={80}
+              width={100}
+              height={60}
               priority
               unoptimized
             />
-            <Text style={{ fontSize: 32, fontWeight: 600, lineHeight: 1 }}>+</Text>
+            <Text style={{ fontSize: 24, fontWeight: 600, lineHeight: 1 }}>+</Text>
             <Image
               src="/antdlogo.svg"
               alt="Ant Design"
-              width={80}
-              height={80}
+              width={60}
+              height={60}
               priority
               unoptimized
             />
           </Flex>
 
-          <Title level={2} style={{ margin: 0 }}>
-            Built with <HeartTwoTone twoToneColor="#eb2f96" />
+          <Title level={3} style={{ margin: 0 }}>
+            Next.js + Ant Design
           </Title>
+          <Text type="secondary" style={{ fontSize: 16 }}>
+            Built with <HeartTwoTone twoToneColor="#eb2f96" />
+          </Text>
 
-          <Flex wrap="wrap" gap="middle" justify="center">
+          <Flex wrap="wrap" gap="small" justify="center">
             <Button
-              size="large"
               type="primary"
               href="https://github.com/DiegoVallejoDev/next-with-ant-design/"
               target="_blank"
@@ -71,7 +57,6 @@ export default function Home() {
               Clone it from Github
             </Button>
             <Button
-              size="large"
               icon={<HeartOutlined />}
               onClick={() => router.push('/support')}
             >
@@ -80,8 +65,8 @@ export default function Home() {
           </Flex>
 
           <div>
-            <Text type="secondary" style={{ display: 'block', marginBottom: 12 }}>
-              Used by:
+            <Text type="secondary" style={{ display: 'block', marginBottom: 4, fontSize: 12 }}>
+              Used by
             </Text>
             <a
               href="https://weaglex.com"
@@ -91,15 +76,19 @@ export default function Home() {
               <Image
                 src="/weaglex.png"
                 alt="weaglex"
-                width={100}
-                height={100}
+                width={60}
+                height={60}
               />
             </a>
           </div>
         </Flex>
       </Card>
 
-      <Card title="Component Showcase" bordered={false}>
+      <Card
+        title="Component Showcase"
+        bordered={false}
+        styles={{ body: { padding: '16px 24px' } }}
+      >
         <Form
           form={form}
           name="showcase"
@@ -113,31 +102,25 @@ export default function Home() {
           }}
           onFinish={onFinish}
         >
-          <Row gutter={[16, 16]}>
-            <Col xs={24} sm={12}>
+          <Row gutter={[12, 8]}>
+            <Col xs={24} md={12}>
               <Form.Item label="Input Number" name="inputNumber">
-                <InputNumber
-                  size="large"
-                  min={1}
-                  max={10}
-                  style={{ width: '100%' }}
-                />
+                <InputNumber min={1} max={10} style={{ width: '100%' }} />
               </Form.Item>
             </Col>
-            <Col xs={24} sm={12}>
+            <Col xs={24} md={12}>
               <Form.Item label="Switch" name="switch" valuePropName="checked">
                 <Switch />
               </Form.Item>
             </Col>
-            <Col xs={24} sm={12}>
+            <Col xs={24} md={12}>
               <Form.Item label="Slider" name="slider">
                 <Slider />
               </Form.Item>
             </Col>
-            <Col xs={24} sm={12}>
+            <Col xs={24} md={12}>
               <Form.Item label="Select" name="select">
                 <Select
-                  size="large"
                   style={{ width: '100%' }}
                   options={[
                     { value: 'jack', label: 'Jack' },
@@ -148,18 +131,18 @@ export default function Home() {
                 />
               </Form.Item>
             </Col>
-            <Col xs={24} sm={12}>
+            <Col xs={24} md={12}>
               <Form.Item label="DatePicker" name="datePicker">
                 <DatePicker style={{ width: '100%' }} />
               </Form.Item>
             </Col>
-            <Col xs={24} sm={12} style={{ display: 'flex', alignItems: 'flex-end' }}>
+            <Col xs={24} md={12} style={{ display: 'flex', alignItems: 'flex-end' }}>
               <Form.Item style={{ width: '100%', marginBottom: 0 }}>
                 <Flex gap="small" wrap="wrap">
-                  <Button size="large" type="primary" htmlType="submit">
+                  <Button type="primary" htmlType="submit">
                     OK
                   </Button>
-                  <Button size="large" onClick={() => form.resetFields()}>
+                  <Button onClick={() => form.resetFields()}>
                     Cancel
                   </Button>
                 </Flex>
@@ -168,27 +151,6 @@ export default function Home() {
           </Row>
         </Form>
       </Card>
-
-      <Modal
-        title="Submitted values"
-        open={!!submittedValues}
-        onCancel={() => setSubmittedValues(null)}
-        footer={[
-          <Button key="close" type="primary" onClick={() => setSubmittedValues(null)}>
-            Close
-          </Button>,
-        ]}
-      >
-        {submittedValues && (
-          <Descriptions column={1} bordered>
-            {Object.entries(submittedValues).map(([key, value]) => (
-              <Descriptions.Item key={key} label={key}>
-                {formatValue(value)}
-              </Descriptions.Item>
-            ))}
-          </Descriptions>
-        )}
-      </Modal>
     </Flex>
   );
 }

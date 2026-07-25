@@ -46,7 +46,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   return (
     <ProLayout
       title="Next.js + Ant Design"
-      logo="/nextlogo.svg"
+      logo={false}
       style={{ minHeight: '100vh' }}
       contentStyle={{ padding: 24 }}
       route={ROUTES}

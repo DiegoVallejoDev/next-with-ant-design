@@ -12,6 +12,10 @@ A modern boilerplate combining **Next.js 15**, **Ant Design 5**, and **TypeScrip
 
 [Live Demo](https://next-with-ant-design.vercel.app/) · [Report Bug](https://github.com/DiegoVallejoDev/next-with-ant-design/issues) · [Request Feature](https://github.com/DiegoVallejoDev/next-with-ant-design/issues)
 
+## Why this project?
+
+Ant Design is one of the most widely adopted React component libraries in Asia, powering thousands of enterprise dashboards, admin tools, and SaaS products across the region. This boilerplate bridges Ant Design's mature component ecosystem with Next.js 15's performance and TypeScript's type safety, giving teams a production-ready starting point that follows the conventions they already know. It is especially useful for Asian startups and enterprises that want to ship consistent, accessible admin interfaces quickly without rebuilding the same layout, theming, and routing scaffolding from scratch.
+
 ## Tech Stack
 
 - **Next.js** 15 (Pages Router)
@@ -22,7 +26,7 @@ A modern boilerplate combining **Next.js 15**, **Ant Design 5**, and **TypeScrip
 
 ## Requirements
 
-- Node.js 18+
+- Node.js 22.x
 
 ## Getting Started
 
@@ -105,7 +109,7 @@ next-with-ant-design/
 
 If you're upgrading from the original v1 (antd 4 + React 17):
 
-1. **Node.js 18+** is now required
+1. **Node.js 22.x** is now required
 2. **Less is gone** — theme is configured in `styles/theme.ts` via CSS-in-JS tokens
 3. **Component API changes** (antd 5):
    - `Select`: use `options` prop instead of `<Option>` children
