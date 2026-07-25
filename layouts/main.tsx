@@ -48,6 +48,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       title="Next.js + Ant Design"
       logo="/nextlogo.svg"
       style={{ minHeight: '100vh' }}
+      contentStyle={{ padding: 24 }}
       route={ROUTES}
       menuItemRender={(item, dom) => (
         <Link href={item.path || '/'}>{dom}</Link>

@@ -1,10 +1,36 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { HeartTwoTone, GithubOutlined, HeartOutlined } from '@ant-design/icons';
-import { Row, Col, Form, Select, InputNumber, DatePicker, Switch, Slider, Button, Card, Typography, Flex } from 'antd';
+import { Row, Col, Form, Select, InputNumber, DatePicker, Switch, Slider, Button, Card, Typography, Flex, Modal, Tag } from 'antd';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 
 const { Title, Text } = Typography;
 
+interface ShowcaseValues {
+  inputNumber?: number;
+  switch?: boolean;
+  slider?: number;
+  select?: string;
+  datePicker?: Dayjs;
+}
+
 export default function Home() {
+  const router = useRouter();
+  const [submittedValues, setSubmittedValues] = useState<ShowcaseValues | null>(null);
+  const [form] = Form.useForm<ShowcaseValues>();
+
+  const onFinish = (values: ShowcaseValues) => {
+    setSubmittedValues(values);
+  };
+
+  const formatValue = (value: unknown) => {
+    if (dayjs.isDayjs(value)) return value.format('YYYY-MM-DD');
+    if (typeof value === 'boolean') return value ? 'Yes' : 'No';
+    return String(value ?? '-');
+  };
+
   return (
     <Flex vertical gap="large" style={{ maxWidth: 960, margin: '0 auto' }}>
       <Card bordered={false} style={{ textAlign: 'center' }}>
@@ -37,7 +63,9 @@ export default function Home() {
             <Button
               size="large"
               type="primary"
-              onClick={() => window.open('https://github.com/DiegoVallejoDev/next-with-ant-design/', '_blank')}
+              href="https://github.com/DiegoVallejoDev/next-with-ant-design/"
+              target="_blank"
+              rel="noopener noreferrer"
               icon={<GithubOutlined />}
             >
               Clone it from Github
@@ -45,7 +73,7 @@ export default function Home() {
             <Button
               size="large"
               icon={<HeartOutlined />}
-              href="/support"
+              onClick={() => router.push('/support')}
             >
               Support this project
             </Button>
@@ -72,34 +100,44 @@ export default function Home() {
       </Card>
 
       <Card title="Component Showcase" bordered={false}>
-        <Form layout="vertical">
+        <Form
+          form={form}
+          name="showcase"
+          layout="vertical"
+          initialValues={{
+            inputNumber: 3,
+            switch: true,
+            slider: 70,
+            select: 'lucy',
+            datePicker: dayjs(),
+          }}
+          onFinish={onFinish}
+        >
           <Row gutter={[16, 16]}>
             <Col xs={24} sm={12}>
-              <Form.Item label="Input Number">
+              <Form.Item label="Input Number" name="inputNumber">
                 <InputNumber
                   size="large"
                   min={1}
                   max={10}
                   style={{ width: '100%' }}
-                  defaultValue={3}
                 />
               </Form.Item>
             </Col>
             <Col xs={24} sm={12}>
-              <Form.Item label="Switch" valuePropName="checked">
-                <Switch defaultChecked />
+              <Form.Item label="Switch" name="switch" valuePropName="checked">
+                <Switch />
               </Form.Item>
             </Col>
             <Col xs={24} sm={12}>
-              <Form.Item label="Slider">
-                <Slider defaultValue={70} />
+              <Form.Item label="Slider" name="slider">
+                <Slider />
               </Form.Item>
             </Col>
             <Col xs={24} sm={12}>
-              <Form.Item label="Select">
+              <Form.Item label="Select" name="select">
                 <Select
                   size="large"
-                  defaultValue="lucy"
                   style={{ width: '100%' }}
                   options={[
                     { value: 'jack', label: 'Jack' },
@@ -111,7 +149,7 @@ export default function Home() {
               </Form.Item>
             </Col>
             <Col xs={24} sm={12}>
-              <Form.Item label="DatePicker">
+              <Form.Item label="DatePicker" name="datePicker">
                 <DatePicker style={{ width: '100%' }} />
               </Form.Item>
             </Col>
@@ -121,7 +159,7 @@ export default function Home() {
                   <Button size="large" type="primary" htmlType="submit">
                     OK
                   </Button>
-                  <Button size="large">
+                  <Button size="large" onClick={() => form.resetFields()}>
                     Cancel
                   </Button>
                 </Flex>
@@ -130,6 +168,28 @@ export default function Home() {
           </Row>
         </Form>
       </Card>
+
+      <Modal
+        title="Submitted values"
+        open={!!submittedValues}
+        onCancel={() => setSubmittedValues(null)}
+        footer={[
+          <Button key="close" type="primary" onClick={() => setSubmittedValues(null)}>
+            Close
+          </Button>,
+        ]}
+      >
+        {submittedValues && (
+          <Flex vertical gap="small">
+            {Object.entries(submittedValues).map(([key, value]) => (
+              <div key={key}>
+                <Tag>{key}</Tag>
+                <Text>{formatValue(value)}</Text>
+              </div>
+            ))}
+          </Flex>
+        )}
+      </Modal>
     </Flex>
   );
 }
