@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { HeartTwoTone, GithubOutlined, HeartOutlined } from '@ant-design/icons';
-import { Row, Col, Form, Select, InputNumber, DatePicker, Switch, Slider, Button, Card, Typography, Flex, Modal, Tag } from 'antd';
+import { Row, Col, Form, Select, InputNumber, DatePicker, Switch, Slider, Button, Card, Typography, Flex, Modal, Descriptions } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 
@@ -180,14 +180,13 @@ export default function Home() {
         ]}
       >
         {submittedValues && (
-          <Flex vertical gap="small">
+          <Descriptions column={1} bordered>
             {Object.entries(submittedValues).map(([key, value]) => (
-              <div key={key}>
-                <Tag>{key}</Tag>
-                <Text>{formatValue(value)}</Text>
-              </div>
+              <Descriptions.Item key={key} label={key}>
+                {formatValue(value)}
+              </Descriptions.Item>
             ))}
-          </Flex>
+          </Descriptions>
         )}
       </Modal>
     </Flex>
